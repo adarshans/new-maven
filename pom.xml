@@ -2,14 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>Facebook</groupId>
   <artifactId>Facebook</artifactId>
-  <version>0.0.1-SNAPSHOT</version> 
-  
-  <properties>
- <maven.compiler.source>17</maven.compiler.source>
- <maven.compiler.target>17</maven.compiler.target>
-</properties>
-  
-  
+  <version>0.0.1-SNAPSHOT</version>   
 <build>
   <plugins>
     <plugin>
@@ -50,12 +43,7 @@
     <version>7.4.0</version>
     <scope>test</scope>
 </dependency>
-<dependency>
-    <groupId>org.openqa.selenium</groupId>
-    <artifactId>selenium</artifactId>
-    <version>0.8.1</version>
-    <type>pom</type>
-</dependency>
+
 <dependency>
     <groupId>commons-io</groupId>
     <artifactId>commons-io</artifactId>
