@@ -8,24 +8,25 @@
  <maven.compiler.source>17</maven.compiler.source>
  <maven.compiler.target>17</maven.compiler.target>
 </properties>
-
- 
-  <build>
+  
+  
+<build>
   <plugins>
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.1</version>
+        <version>3.10.0</version>
         <configuration>
-         <source>${maven.compiler.source}</source>
-         <target>${maven.compiler.target}</target>
-     
+          <verbose>true</verbose>
+          <fork>true</fork>
+          <executable>${JAVA_HOME}/bin/javac</executable>
+          <compilerVersion>1.2</compilerVersion>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
+        <version>3.0.0-M1</version>
         <configuration>
           <suiteXmlFiles>
             <suiteXmlFile>testng.xml</suiteXmlFile>
@@ -33,7 +34,41 @@
         </configuration>
       </plugin>
   </plugins>
-  </build>
+  <pluginManagement>
+  	<plugins>
+  		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+  		<plugin>
+  			<groupId>org.eclipse.m2e</groupId>
+  			<artifactId>lifecycle-mapping</artifactId>
+  			<version>1.0.0</version>
+  			<configuration>
+  				<lifecycleMappingMetadata>
+  					<pluginExecutions>
+  						<pluginExecution>
+  							<pluginExecutionFilter>
+  								<groupId>
+  									org.apache.maven.plugins
+  								</groupId>
+  								<artifactId>
+  									maven-compiler-plugin
+  								</artifactId>
+  								<versionRange>[3.0.0,)</versionRange>
+  								<goals>
+  									<goal>compile</goal>
+  									<goal>testCompile</goal>
+  								</goals>
+  							</pluginExecutionFilter>
+  							<action>
+  								<ignore></ignore>
+  							</action>
+  						</pluginExecution>
+  					</pluginExecutions>
+  				</lifecycleMappingMetadata>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </pluginManagement>
+</build>
   
   <dependencies>
   <dependency>
@@ -41,7 +76,12 @@
     <artifactId>selenium-server</artifactId>
     <version>3.141.59</version>
 </dependency>
-
+<dependency>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.10.1</version>
+  <type>maven-plugin</type>
+</dependency>
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
