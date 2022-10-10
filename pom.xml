@@ -19,8 +19,7 @@
         <configuration>
          <source>${maven.compiler.source}</source>
          <target>${maven.compiler.target}</target>
-         <executable>${JAVA_HOME}/bin/javac</executable>
-          <compilerVersion>1.2</compilerVersion>
+     
         </configuration>
       </plugin>
       <plugin>
